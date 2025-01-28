@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="TestNG(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="testcases.CategoryTest">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="addNewCatogory"/>
+        </methods>
+      </class> <!-- testcases.CategoryTest -->
+    </classes>
+  </test> <!-- TestNG(failed) -->
+</suite> <!-- Failed suite [Suite] -->
