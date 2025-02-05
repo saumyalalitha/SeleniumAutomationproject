@@ -1,19 +1,21 @@
 package pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ManageNewsPage {
-	
+
 	public WebDriver driver;
 
 	public ManageNewsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	@FindBy(xpath = "//p[text() = 'Manage News']")
 	private WebElement manageNewsMenuItem;
 	@FindBy(xpath = "//a[@class= 'btn btn-rounded btn-danger']")
@@ -26,33 +28,59 @@ public class ManageNewsPage {
 	private WebElement enterSearchInput;
 	@FindBy(xpath = "//button[@class='btn btn-danger btn-fix']")
 	private WebElement submitSearchButton;
-	
-	public void clickManageNewsMenuItem()
-	{
+
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']")
+	private WebElement searchResultTable;
+
+	@FindBy(xpath = "//table[@class='table table-bordered table-hover table-sm']/tbody/tr")
+	List<WebElement> tablerows;
+
+	public ManageNewsPage clickManageNewsMenuItem() {
 		manageNewsMenuItem.click();
+		return this;
 	}
-	
-	public void clickAddNewsButton()
-	{
+
+	public void clickAddNewsButton() {
 		addNewsButton.click();
 	}
-	
-	public void enterNewsInNewsField()
-	{
-		enterTheNewsField.sendKeys("Test Data");
-	}
-	
-	public void clickSearchButton()
-	{
+
+	public ManageNewsPage clickSearchButton() {
 		searchButton.click();
+		return this;
 	}
-	
-	public void enterSearchInputInSearchField(String searchInput) {
+
+	public ManageNewsPage enterSearchInputInSearchField(String searchInput) {
 		enterSearchInput.sendKeys(searchInput);
+		return this;
 	}
-	public void clickSubmitSearchbutton() {
+
+	public ManageNewsPage clickSubmitSearchbutton() {
 		submitSearchButton.click();
-		
+		return this;
+
+	}
+
+	public boolean isSearchResultTableDisplayed() {
+
+		return searchResultTable.isDisplayed();
+
+	}
+
+	public boolean istRowcellContentMatchingInput(String searchInput) {
+		for (WebElement option : tablerows) {
+			String text = option.getText();
+			if (text.contains(searchInput)) {
+				System.out.println(text);
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	public void searchResultValidation(String searchinput) {
+		searchResultTable.getText();
+
 	}
 
 }

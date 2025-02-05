@@ -3,6 +3,7 @@ package testcases;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.ProjectBase;
@@ -15,28 +16,20 @@ public class LoginTestCase extends ProjectBase {
 	@Test(groups = { "smoke" }, description = "user login with valid username and valid password", priority = 0)
 	public void userLoginWithValidUsernameandValidPassword() throws IOException {
 
-		
 		String username = ExcelUtility.readStringData(1, 0, "Login");
 		String password = ExcelUtility.readStringData(1, 1, "Login");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickRememberCheckbox();
-		loginpage.clickSignInButton();
+		//chaining
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox().clickSignInButton();	
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
 		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
 
 	}
 
-	@Test(description = "user login with valid username and invalid password", priority = 1)
-	public void userLoginWithValidUsernameandInvalidPassword() throws IOException {
-		String username = ExcelUtility.readStringData(2, 0, "Login");
-		String password = ExcelUtility.readStringData(2, 1, "Login");
+	@Test(description = "user login with valid username and invalid password", priority = 1, dataProvider = "LoginProvider") //dataprovider
+	public void userLoginWithValidUsernameandInvalidPassword(String username, String password) throws IOException {
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickRememberCheckbox();
-		loginpage.clickSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox().clickSignInButton();
 		boolean isAlertboxErrorMessageDisplayed = loginpage.isAlertboxErrorMessageDisplayed();
 		Assert.assertTrue(isAlertboxErrorMessageDisplayed, Messages.ELEMENTNOTFOUND);
 
@@ -47,10 +40,7 @@ public class LoginTestCase extends ProjectBase {
 		String username = ExcelUtility.readStringData(3, 0, "Login");
 		String password = ExcelUtility.readStringData(3, 1, "Login");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickRememberCheckbox();
-		loginpage.clickSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox().clickSignInButton();
 		boolean isAlertboxErrorMessageDisplayed = loginpage.isAlertboxErrorMessageDisplayed();
 		Assert.assertTrue(isAlertboxErrorMessageDisplayed, Messages.ELEMENTNOTFOUND);
 
@@ -61,12 +51,18 @@ public class LoginTestCase extends ProjectBase {
 		String username = ExcelUtility.readStringData(4, 0, "Login");
 		String password = ExcelUtility.readStringData(4, 1, "Login");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsernameOnUsernameField(username);
-		loginpage.enterPasswordOnPasswordField(password);
-		loginpage.clickRememberCheckbox();
-		loginpage.clickSignInButton();
+		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox().clickSignInButton();
 		boolean isAlertboxErrorMessageDisplayed = loginpage.isAlertboxErrorMessageDisplayed();
 		Assert.assertTrue(isAlertboxErrorMessageDisplayed, Messages.ELEMENTNOTFOUND);
 
+	}
+	@DataProvider(name = "LoginProvider")
+	public Object[][] getDataFromDataprovider() throws IOException
+	{
+		return new Object[][] {new Object[] {"admin1","admin234"},
+			new Object[]
+					{"sumi","test1234"},
+		new Object[]
+				{ExcelUtility.readStringData(5, 0, "Login"), ExcelUtility.readStringData(5, 1, "Login")	}};
 	}
 }

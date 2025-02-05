@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="ParallelTesting" parallel="methods" thread-count="5">
-	<test thread-count="5" name="Test">
-		<parameter name="browser" value="chrome"></parameter>
+<suite name="ParallelTesting" parallel="tests" thread-count="5">
+	<parameter name="browser" value="chrome"></parameter>
+	<test name="Test1">
+
 
 		<classes>
 
@@ -17,9 +18,8 @@
 	</test> <!--
 
 	Test -->
-	<test thread-count="5" name="Test2">
+	<test name="Test2">
 
-		<parameter name="browser" value="chrome"></parameter>
 
 		<classes>
 
@@ -37,9 +37,8 @@
 
 	</test>
 
-	<test thread-count="5" name="Test3">
+	<test name="Test3">
 
-		<parameter name="browser" value="chrome"></parameter>
 
 		<classes>
 
@@ -47,7 +46,8 @@
 
 				<methods>
 
-					<include name="userLoginWithInvalidUsernameandValidPassword"></include>
+					<include
+						name="userLoginWithInvalidUsernameandInvalidPassword"></include>
 
 				</methods>
 

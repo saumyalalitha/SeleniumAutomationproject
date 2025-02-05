@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Mulitiple Browser testing" parallel="classes" thread-count="5">
-	<test thread-count="5" name="chromeTest">
+<suite name="Mulitiple Browser testing" parallel="tests" thread-count="5">
+	<test name="chromeTest">
 
 		<parameter name="browser" value="chrome"></parameter>
 
 		<classes>
 
 			<class name="testcases.LoginTestCase">
+				<methods>
+					<include name="userLoginWithValidUsernameandValidPassword"></include>
+				</methods>
 			</class>
 
 		</classes>
@@ -16,17 +19,21 @@
 
 
 	Test -->
-	<test thread-count="5" name="edgeTest">
+	<test name="edgeTest">
 
 		<parameter name="browser" value="edge"></parameter>
 
 		<classes>
 
 			<class name="testcases.ManageNewsTest">
+				<methods>
+					<include name="searchNews"></include>
+				</methods>
 			</class>
 
 		</classes>
 
 	</test>
 	<!-- TestNG -->
-</suite> <!-- Suite -->
+</suite> <!--
+Suite -->

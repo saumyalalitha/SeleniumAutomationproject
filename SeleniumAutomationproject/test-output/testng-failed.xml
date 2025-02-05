@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Listeners Test Report Generation]" guice-stage="DEVELOPMENT">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="browser" value="chrome"/>
   <listeners>
     <listener class-name="listeners.ListenerClass"/>
@@ -9,10 +9,10 @@
     <classes>
       <class name="testcases.CategoryTest">
         <methods>
+          <include name="editExistingCategoryFromCategoryListPage"/>
           <include name="initializeBrowser"/>
-          <include name="addNewCatogory"/>
         </methods>
       </class> <!-- testcases.CategoryTest -->
     </classes>
   </test> <!-- TestNG(failed) -->
-</suite> <!-- Failed suite [Listeners Test Report Generation] -->
+</suite> <!-- Failed suite [Suite] -->

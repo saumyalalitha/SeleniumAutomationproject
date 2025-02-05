@@ -14,7 +14,7 @@ import utilities.ScreenshotUtility;
 public class ProjectBase {
 
 	public WebDriver driver;
-	
+
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception {
@@ -35,14 +35,12 @@ public class ProjectBase {
 		}
 	}
 
-	public void driverQuit(ITestResult iTestResult) throws IOException
-	{
-	if(iTestResult.getStatus()==ITestResult.FAILURE)
-	{
-		ScreenshotUtility screenShot=new ScreenshotUtility();
-		screenShot.getScreenshot(driver, iTestResult.getName());
-	}
-		//driver.quit();
-		
+	public void driverQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility screenShot = new ScreenshotUtility();
+			screenShot.getScreenshot(driver, iTestResult.getName());
+		}
+		// driver.quit();
+
 	}
 }

@@ -13,6 +13,7 @@ public class LoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
 
 	@FindBy(xpath = "//input[@name='username']")
 	private WebElement usernameField;
@@ -27,27 +28,31 @@ public class LoginPage {
 	@FindBy(xpath = "//h5[text()=\" Alert!\"]")
 	private WebElement alertBoxErrorMessage;
 
-	public void enterUsernameOnUsernameField(String username) {
+	public LoginPage enterUsernameOnUsernameField(String username) {
 
 		usernameField.sendKeys(username);
+		return this;
 
 	}
 
-	public void enterPasswordOnPasswordField(String password) {
+	public LoginPage enterPasswordOnPasswordField(String password) {
 
 		passwordField.sendKeys(password);
+		return this;
 
 	}
 
-	public void clickRememberCheckbox() {
+	public LoginPage clickRememberCheckbox() {
 
 		remember.click();
+		return this;
 
 	}
 
-	public void clickSignInButton() {
+	public HomePage clickSignInButton() {
 
 		signinButton.click();
+		return new HomePage(driver);
 
 	}
 
