@@ -22,12 +22,12 @@ public class HomeTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// logout
 		HomePage homePage = new HomePage(driver);
 		homePage.clickOnAdminImageIconOnHomePage().clickOnLogoutOption();
 		boolean isSigninPageDisplayedOnLogout = homePage.isSigninPageDisplayedOnLogout();
-		Assert.assertTrue(isSigninPageDisplayedOnLogout, Messages.LOGINPAGENOTDISPLAYED);
+		Assert.assertTrue(isSigninPageDisplayedOnLogout, Messages.LOGOUTERROR);
 
 	}
 

@@ -4,10 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-
 import utilities.PageUtility;
-import utilities.WaitUtility;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -50,9 +47,6 @@ public class SubCategoryPage {
 	}
 
 	public void selectDropdownOptionToAddNewSubcategory() {
-
-		// Select select = new Select(selectDropdownField);
-		// select.selectByIndex(5);
 		PageUtility.selectByIndex(selectDropdownField, 5);
 
 	}
@@ -81,11 +75,6 @@ public class SubCategoryPage {
 	}
 
 	public SubCategoryPage clickDeleteIconForFirstSubcategoryInTable() {
-
-		// deleteExistingSubcategoryTableRow.click();
-		// driver.switchTo().alert();
-		// System.out.println(driver.switchTo().alert().getText());
-		// driver.switchTo().alert().accept();
 		PageUtility.confirmAlert(deleteExistingSubcategoryTableRow);
 		return this;
 	}

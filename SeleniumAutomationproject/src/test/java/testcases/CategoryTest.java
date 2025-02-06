@@ -23,7 +23,7 @@ public class CategoryTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// add new category
 		String categoryName = ExcelUtility.readStringData(1, 0, "Category");
 		String uploadImage = Constants.TESTIMAGEFILE;
@@ -34,7 +34,7 @@ public class CategoryTest extends ProjectBase {
 		categorypage.imageUpload(uploadImage);
 		categorypage.clickSaveButton();
 		boolean isSuccessMessageDisplayed = categorypage.successMessageDisplayed();
-		Assert.assertTrue(isSuccessMessageDisplayed, Messages.SUCCESSMESSAGENOTFOUND);
+		Assert.assertTrue(isSuccessMessageDisplayed, Messages.CATEGORYERROR);
 
 	}
 
@@ -47,7 +47,7 @@ public class CategoryTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// edit
 		String newCategoryNameForEdit = ExcelUtility.readStringData(2, 0, "Category");
 		String newImageUploadToEditcategory = Constants.TESTIMAGETOEDITCATEGORY;

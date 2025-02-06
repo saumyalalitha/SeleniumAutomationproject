@@ -22,7 +22,7 @@ public class ManageNewsTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// search News and validate the search result
 		String inputSearch = ExcelUtility.readStringData(2, 0, "NewsSearch");
 		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);

@@ -23,7 +23,7 @@ public class SubcategoryTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// add new subcategory
 		SubCategoryPage subcategoryPage = new SubCategoryPage(driver);
 		subcategoryPage.clickSubcategoryMenu().clickNewButtonInSubcategory();
@@ -35,7 +35,7 @@ public class SubcategoryTest extends ProjectBase {
 		subcategoryPage.clickSaveButtonInAddSubcategory();
 		boolean isSuccessMessageForNewSubcategoryDisplayed = subcategoryPage
 				.isSuccessMessageForNewSubcategoryDisplayed();
-		Assert.assertTrue(isSuccessMessageForNewSubcategoryDisplayed, Messages.SUCCESSMESSAGENOTFOUND);
+		Assert.assertTrue(isSuccessMessageForNewSubcategoryDisplayed, Messages.SUBCATEGORYERROR);
 	}
 
 	@Test(description = "Delete first subcategory listed in the Subcategory List", priority = 0)
@@ -47,13 +47,13 @@ public class SubcategoryTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// delete subcategory
 		SubCategoryPage subcategoryPage = new SubCategoryPage(driver);
 		subcategoryPage.clickSubcategoryMenu().clickDeleteIconForFirstSubcategoryInTable();
 		boolean isSubcategoryDeletedSuccessMessageDisplayed = subcategoryPage
 				.isSubcategoryDeletedSuccessMessageDisplayed();
-		Assert.assertTrue(isSubcategoryDeletedSuccessMessageDisplayed, Messages.SUCCESSMESSAGENOTFOUND);
+		Assert.assertTrue(isSubcategoryDeletedSuccessMessageDisplayed, Messages.SUBCATEGORYDELETEERROR);
 
 	}
 }

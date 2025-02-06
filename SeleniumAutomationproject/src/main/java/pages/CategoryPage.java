@@ -95,11 +95,7 @@ public class CategoryPage {
 	}
 
 	public void checkUploadedImageVisibilityAndDeleteExistingImage() {
-		//deleteAlreadyUploadedImageToEditCategory.click();
 		PageUtility.confirmAlert(deleteAlreadyUploadedImageToEditCategory);
-		//driver.switchTo().alert();
-		//System.out.println(driver.switchTo().alert().getText());
-		//driver.switchTo().alert().accept();
 	}
 
 	public boolean isImageDeletedSuccessMessageDisplayed() {

@@ -64,8 +64,6 @@ public class ManageUsersPage {
 	}
 
 	public ManageUsersPage selectValueFromUserTypedropdownField() {
-		// Select select = new Select(userTypedropdownField);
-		// select.selectByIndex(2);
 		PageUtility.selectByIndex(userTypedropdownField, 2);
 		return this;
 	}

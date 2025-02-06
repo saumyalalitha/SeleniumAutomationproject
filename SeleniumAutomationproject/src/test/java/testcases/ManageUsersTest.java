@@ -23,7 +23,7 @@ public class ManageUsersTest extends ProjectBase {
 		loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).clickRememberCheckbox()
 				.clickSignInButton();
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
-		Assert.assertTrue(isDashboardDisplayed, Messages.ELEMENTNOTFOUND);
+		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// add new user
 		// String usernameToAddUser = ExcelUtility.readStringData(1, 0, "ManageUsers");
 		// String passwordToAddUser = ExcelUtility.readStringData(1, 1, "ManageUsers");
