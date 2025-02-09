@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class SubCategoryPage {
 	public WebDriver driver;
@@ -34,31 +35,35 @@ public class SubCategoryPage {
 	private WebElement deletedSuccessMessageDisplayed;
 
 	public SubCategoryPage clickSubcategoryMenu() {
-
+		WaitUtility.waitUntillElementToBeClickable(driver, subcategoryMenu);
 		subcategoryMenu.click();
 		return this;
 
 	}
 
-	public void clickNewButtonInSubcategory() {
+	public SubCategoryPage clickNewButtonInSubcategory() {
 
 		newButton.click();
+		return this;
 
 	}
 
-	public void selectDropdownOptionToAddNewSubcategory() {
-		PageUtility.selectByIndex(selectDropdownField, 5);
+	public SubCategoryPage selectDropdownOptionToAddNewSubcategory(String value) {
+		PageUtility.selectByVisibletext(selectDropdownField, value);
+		return this;
 
 	}
 
-	public void enterNewSubcategoryNameinSubcategoryField(String subcategoryName) {
+	public SubCategoryPage enterNewSubcategoryNameinSubcategoryField(String subcategoryName) {
 
 		newSubcategoryName.sendKeys(subcategoryName);
+		return this;
 	}
 
-	public void imageUploadNewSubcategory(String imagePath) {
+	public SubCategoryPage imageUploadNewSubcategory(String imagePath) {
 
 		chooseFileButton.sendKeys(imagePath);
+		return this;
 	}
 
 	public SubCategoryPage clickSaveButtonInAddSubcategory() {
@@ -75,11 +80,12 @@ public class SubCategoryPage {
 	}
 
 	public SubCategoryPage clickDeleteIconForFirstSubcategoryInTable() {
-		PageUtility.confirmAlert(deleteExistingSubcategoryTableRow);
+		PageUtility.confirmAlert(driver, deleteExistingSubcategoryTableRow);
 		return this;
 	}
 
 	public boolean isSubcategoryDeletedSuccessMessageDisplayed() {
+		WaitUtility.waitUntillVisibilityOfElement(driver, deletedSuccessMessageDisplayed);
 		return deletedSuccessMessageDisplayed.isDisplayed();
 	}
 }

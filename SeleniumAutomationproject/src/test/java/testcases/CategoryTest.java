@@ -5,17 +5,17 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.ProjectBase;
+import base.Base;
 import constants.Constants;
 import constants.Messages;
 import pages.CategoryPage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class CategoryTest extends ProjectBase {
+public class CategoryTest extends Base {
 
 	@Test(description = "Add a new category to the Category Menu", priority = 1)
-	public void addNewCatogory() throws IOException {
+	public void addingNewCatogoryInCategoryPage() throws IOException {
 		// login
 		String username = ExcelUtility.readStringData(1, 0, "Login");
 		String password = ExcelUtility.readStringData(1, 1, "Login");
@@ -28,11 +28,8 @@ public class CategoryTest extends ProjectBase {
 		String categoryName = ExcelUtility.readStringData(1, 0, "Category");
 		String uploadImage = Constants.TESTIMAGEFILE;
 		CategoryPage categorypage = new CategoryPage(driver);
-		categorypage.clickCategoryMenuItem().clicknewCategoryButton();
-		categorypage.enterValueinEnterCategoryField(categoryName);
-		categorypage.clickSelectGroupsFiled();
-		categorypage.imageUpload(uploadImage);
-		categorypage.clickSaveButton();
+		categorypage.clickCategoryMenuItem().clicknewCategoryButton().enterValueinEnterCategoryField(categoryName)
+				.clickSelectGroupsFiled().imageUpload(uploadImage).clickSaveButton();
 		boolean isSuccessMessageDisplayed = categorypage.successMessageDisplayed();
 		Assert.assertTrue(isSuccessMessageDisplayed, Messages.CATEGORYERROR);
 
@@ -56,9 +53,10 @@ public class CategoryTest extends ProjectBase {
 		category.checkUploadedImageVisibilityAndDeleteExistingImage();
 		boolean isImageDeletedSuccessmessageDisplayed = category.isImageDeletedSuccessMessageDisplayed();
 		Assert.assertTrue(isImageDeletedSuccessmessageDisplayed, Messages.IMAGENOTFOUND);
-		category.enterValueinEnterCategoryField(newCategoryNameForEdit);
-		category.imageUpload(newImageUploadToEditcategory);
-		category.clickUpdateButtonToCompleteEditcategory();
+		category.enterValueinEnterCategoryField(newCategoryNameForEdit).imageUpload(newImageUploadToEditcategory)
+				.clickUpdateButtonToCompleteEditcategory();
+		// category.imageUpload(newImageUploadToEditcategory);
+		// category.clickUpdateButtonToCompleteEditcategory();
 		boolean isCategoryUpdatedSuccessMessageDisplayed = category.isCategoryUpdatedSuccessMessageDisplayed();
 		Assert.assertTrue(isCategoryUpdatedSuccessMessageDisplayed, Messages.CATEGORYNOTUPDATED);
 

@@ -5,14 +5,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.ProjectBase;
+import base.Base;
 import constants.Messages;
 import pages.LoginPage;
 import pages.ManageUsersPage;
 import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
-public class ManageUsersTest extends ProjectBase {
+public class ManageUsersTest extends Base {
 
 	@Test(description = "Add a New user using Manage Users Menu", priority = 1)
 	public void addnewUserInManageUserModule() throws IOException {
@@ -25,17 +25,16 @@ public class ManageUsersTest extends ProjectBase {
 		boolean isDashboardDisplayed = loginpage.isDashboardDisplayed();
 		Assert.assertTrue(isDashboardDisplayed, Messages.CREDENTIALERROR);
 		// add new user
-		// String usernameToAddUser = ExcelUtility.readStringData(1, 0, "ManageUsers");
-		// String passwordToAddUser = ExcelUtility.readStringData(1, 1, "ManageUsers");
 		FakerUtility faker = new FakerUtility();
 		String fakeUsernameForNewUser = faker.generateNewUserName();
 		String fakePasswordForNewUser = faker.generateNewPassword();
+		String dropdownValueForUserType = ExcelUtility.readStringData(1, 2, "ManageUsers");
 		ManageUsersPage manageUser = new ManageUsersPage(driver);
 		manageUser.clickAdminUsersMenu();
 		manageUser.clickManageUsersDropdownOption().clickOnNewButton()
 				.enterUsernameInUsernameField(fakeUsernameForNewUser)
-				.enterPasswordInPasswordField(fakePasswordForNewUser).selectValueFromUserTypedropdownField()
-				.clickSaveButton();
+				.enterPasswordInPasswordField(fakePasswordForNewUser)
+				.selectValueFromUserTypedropdownField(dropdownValueForUserType).clickSaveButton();
 		boolean isUserCreatedSuccessMessageDisplayed = manageUser.isUserCreatedSuccessMessageDisplayed();
 		Assert.assertTrue(isUserCreatedSuccessMessageDisplayed, Messages.USERALREADYEXISTS);
 

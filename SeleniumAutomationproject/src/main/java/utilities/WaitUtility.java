@@ -9,51 +9,50 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtility {
 
-	WebDriver driver;
 	public static int IMPLICITWAITDURATION = 10;
 	public static int EXPLICITWAITDURATION = 10;
 
-	public void implicitWait() {
+	public static void implicitWait(WebDriver driver) {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(IMPLICITWAITDURATION));
 	}
 
-	public void waitUntillAlertIsPresent() {
+	public static void waitUntillAlertIsPresent(WebDriver driver) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
 
-	public void waitUntillVisibilityOfElement(WebElement element) {
+	public static void waitUntillVisibilityOfElement(WebDriver driver, WebElement element) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 
-	public void waitUntillElementSelectionStateToBe(WebElement element) {
+	public static void waitUntillElementSelectionStateToBe(WebDriver driver, WebElement element) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.elementSelectionStateToBe(element, true));
 	}
 
-	public void waitUntillElementToBeClickable(WebElement element) {
+	public static void waitUntillElementToBeClickable(WebDriver driver, WebElement element) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 
-	public void waitUntillElementToBeSelected(WebElement element) {
+	public static void waitUntillElementToBeSelected(WebDriver driver, WebElement element) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.elementToBeSelected(element));
 	}
 
-	public void waitUntillTitleContains(String element) {
+	public static void waitUntillTitleContains(WebDriver driver, String element) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.titleContains(element));
 	}
 
-	public void waitUntillTextToBePresentInElementValue(WebElement element, String data) {
+	public static void waitUntillTextToBePresentInElementValue(WebDriver driver, WebElement element, String data) {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICITWAITDURATION));
 		wait.until(ExpectedConditions.textToBePresentInElementValue(element, data));

@@ -6,12 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import base.ProjectBase;
+import base.Base;
 import constants.Messages;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class LoginTestCase extends ProjectBase {
+public class LoginTest extends Base {
 
 	@Test(groups = {
 			"smoke" }, description = "user login with valid username and valid password", priority = 0, retryAnalyzer = retry.RetryClass.class)

@@ -11,27 +11,25 @@ import org.openqa.selenium.support.ui.Wait;
 
 public class PageUtility {
 
-	static WebDriver driver;
-
-	public static void confirmAlert(WebElement element) {
+	public static void confirmAlert(WebDriver driver, WebElement element) {
 		element.click();
 		driver.switchTo().alert();
 		System.out.println(driver.switchTo().alert().getText());
 		driver.switchTo().alert().accept();
-
 	}
 
-	public static void rightClickMouseAction(WebElement element) {
+	public static void rightClickMouseAction(WebDriver driver, WebElement element) {
 		Actions act = new Actions(driver);
 		act.contextClick(element).build().perform();
 	}
 
-	public static void dragAndDropMouseAction(WebElement draggableElement, WebElement droppableElement) {
+	public static void dragAndDropMouseAction(WebDriver driver, WebElement draggableElement,
+			WebElement droppableElement) {
 		Actions act = new Actions(driver);
 		act.dragAndDrop(draggableElement, droppableElement).build().perform();
 	}
 
-	public static void mouseHoverAction(WebElement element) {
+	public static void mouseHoverAction(WebDriver driver, WebElement element) {
 		Actions act = new Actions(driver);
 		act.moveToElement(element).build().perform();
 	}
@@ -54,7 +52,7 @@ public class PageUtility {
 		select.selectByValue(text);
 	}
 
-	public static void handlingCheckBox(WebElement element) {
+	public static void handlingCheckBox(WebDriver driver, WebElement element) {
 		Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
 				.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchFieldException.class);
 		fluentWait.until(ExpectedConditions.elementToBeClickable(element));

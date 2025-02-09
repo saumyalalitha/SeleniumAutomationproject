@@ -5,13 +5,13 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.ProjectBase;
+import base.Base;
 import constants.Messages;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class HomeTest extends ProjectBase {
+public class HomeTest extends Base {
 
 	@Test(groups = { "smoke" }, description = "user logout after successfull login", priority = 0)
 	public void userLogoutFromWebPage() throws IOException {

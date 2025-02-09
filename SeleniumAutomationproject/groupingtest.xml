@@ -9,9 +9,11 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="testcases.LoginTestCase">
+			<class name="testcases.LoginTest">
 			</class>
+			<class name="testcases.SubcategoryTest"></class>
 		</classes>
-	</test> <!-- TestNG -->
+	</test> <!--
+	TestNG -->
 </suite> <!--
 Suite -->

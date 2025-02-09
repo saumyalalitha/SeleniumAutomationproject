@@ -8,9 +8,9 @@
 	</listeners>
 	<test thread-count="5" name="TestNG">
 		<classes>
-			<class name="testcases.LoginTestCase">
+			<class name="testcases.SubcategoryTest">
 				<methods>
-					<include name="userLoginWithValidUsernameandValidPassword"></include>
+					<include name="deleteExistingSubcategoryFromSubcategoryList"></include>
 				</methods>
 			</class>
 		</classes>

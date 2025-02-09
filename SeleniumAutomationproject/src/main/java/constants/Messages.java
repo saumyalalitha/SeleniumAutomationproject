@@ -13,6 +13,6 @@ public class Messages {
 	public static final String SEARCHRESULTNOTMATCHING = "Search Result not matching input data!";
 	public static final String LOGOUTERROR = "Logout failed!";
 	public static final String IMAGENOTFOUND = "No image is uploaded to delete!";
-    public static final String USERALREADYEXISTS = "User already exists!";
-    public static final String CATEGORYNOTUPDATED = "Category not updated!";
+	public static final String USERALREADYEXISTS = "User already exists!";
+	public static final String CATEGORYNOTUPDATED = "Category not updated!";
 }

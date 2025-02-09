@@ -60,24 +60,28 @@ public class CategoryPage {
 
 	}
 
-	public void clicknewCategoryButton() {
+	public CategoryPage clicknewCategoryButton() {
 
 		newButton.click();
+		return this;
 
 	}
 
-	public void enterValueinEnterCategoryField(String categoryName) {
+	public CategoryPage enterValueinEnterCategoryField(String categoryName) {
 		enterCategoryField.clear();
 		enterCategoryField.sendKeys(categoryName);
+		return this;
 	}
 
-	public void clickSelectGroupsFiled() {
+	public CategoryPage clickSelectGroupsFiled() {
 		selectGroupsField.click();
+		return this;
 
 	}
 
-	public void imageUpload(String imagePath) {
+	public CategoryPage imageUpload(String imagePath) {
 		chooseFileButton.sendKeys(imagePath);
+		return this;
 	}
 
 	public CategoryPage clickSaveButton() {
@@ -89,13 +93,15 @@ public class CategoryPage {
 		return isSuccessMessageDisplayed.isDisplayed();
 	}
 
-	public void clickEditButtonForSecondCategoryInCategoryList() {
+	public CategoryPage clickEditButtonForSecondCategoryInCategoryList() {
 		editButtonForSecondCategoryIncategoryList.click();
+		return this;
 
 	}
 
-	public void checkUploadedImageVisibilityAndDeleteExistingImage() {
-		PageUtility.confirmAlert(deleteAlreadyUploadedImageToEditCategory);
+	public CategoryPage checkUploadedImageVisibilityAndDeleteExistingImage() {
+		PageUtility.confirmAlert(driver, deleteAlreadyUploadedImageToEditCategory);
+		return this;
 	}
 
 	public boolean isImageDeletedSuccessMessageDisplayed() {

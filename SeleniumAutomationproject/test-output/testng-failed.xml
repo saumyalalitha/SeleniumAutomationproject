@@ -7,12 +7,12 @@
   </listeners>
   <test thread-count="5" name="TestNG(failed)">
     <classes>
-      <class name="testcases.CategoryTest">
+      <class name="testcases.SubcategoryTest">
         <methods>
-          <include name="editExistingCategoryFromCategoryListPage"/>
           <include name="initializeBrowser"/>
+          <include name="addNewSubcategory"/>
         </methods>
-      </class> <!-- testcases.CategoryTest -->
+      </class> <!-- testcases.SubcategoryTest -->
     </classes>
   </test> <!-- TestNG(failed) -->
 </suite> <!-- Failed suite [Suite] -->

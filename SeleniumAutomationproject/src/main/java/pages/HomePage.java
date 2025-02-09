@@ -13,14 +13,12 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 
-
 	@FindBy(xpath = "//img[@class='img-circle']")
 	private WebElement adminImageIconOnHomePage;
 	@FindBy(xpath = "//i[@class='ace-icon fa fa-power-off']")
 	private WebElement logoutOption;
 	@FindBy(xpath = "//p[text() = 'Sign in to start your session']")
 	private WebElement signinPageDisplayedOnLogout;
-
 
 	public HomePage clickOnAdminImageIconOnHomePage() {
 		adminImageIconOnHomePage.click();

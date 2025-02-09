@@ -5,15 +5,15 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.ProjectBase;
+import base.Base;
 import constants.Messages;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
-public class ManageNewsTest extends ProjectBase {
+public class ManageNewsTest extends Base {
 
-	@Test(description = "Search a News in the Manage news Menu item")
+	@Test(description = "Search a News in the Manage news Menu item", priority = 0)
 	public void searchNewsInManageNewsModule() throws IOException {
 		// login
 		String username = ExcelUtility.readStringData(1, 0, "Login");

@@ -13,7 +13,6 @@ public class LoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
 
 	@FindBy(xpath = "//input[@name='username']")
 	private WebElement usernameField;

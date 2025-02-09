@@ -4,9 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class ManageUsersPage {
 	public WebDriver driver;
@@ -34,6 +33,7 @@ public class ManageUsersPage {
 	private WebElement userCreatedSuccessMessage;
 
 	public HomePage clickAdminUsersMenu() {
+		WaitUtility.waitUntillElementToBeClickable(driver, adminUsersMenu);
 		adminUsersMenu.click();
 		return new HomePage(driver);
 	}
@@ -63,8 +63,8 @@ public class ManageUsersPage {
 		return this;
 	}
 
-	public ManageUsersPage selectValueFromUserTypedropdownField() {
-		PageUtility.selectByIndex(userTypedropdownField, 2);
+	public ManageUsersPage selectValueFromUserTypedropdownField(String value) {
+		PageUtility.selectByVisibletext(userTypedropdownField, value);
 		return this;
 	}
 

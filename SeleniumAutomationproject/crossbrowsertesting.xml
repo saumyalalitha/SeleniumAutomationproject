@@ -7,7 +7,7 @@
 
 		<classes>
 
-			<class name="testcases.LoginTestCase">
+			<class name="testcases.LoginTest">
 
 				<methods>
 
@@ -30,7 +30,7 @@
 
 		<classes>
 
-			<class name="testcases.LoginTestCase">
+			<class name="testcases.LoginTest">
 
 				<methods>
 
